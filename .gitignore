@@ -2,4 +2,9 @@ node_modules/
 _reference/
 _odt_inspect_*/
 .test-work/
+/test/
+/TESTING.md
+/dist/TESTING.md
+/scripts/check-ui.cjs
+/scripts/inspect-discord.mjs
 *.log
