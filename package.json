@@ -1,0 +1,11 @@
+{
+  "name": "clampdown",
+  "version": "1.2.3",
+  "author": "RedMatterGG",
+  "private": true,
+  "description": "Local, size-aware media compression and multipart archiving for Vencord and BetterDiscord",
+  "license": "GPL-3.0-or-later",
+  "scripts": { "build": "node scripts/build.mjs", "test": "node --test test/*.test.cjs" },
+  "devDependencies": { "esbuild": "0.25.12" },
+  "engines": { "node": ">=22" }
+}

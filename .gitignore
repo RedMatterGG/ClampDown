@@ -1,0 +1,5 @@
+node_modules/
+_reference/
+_odt_inspect_*/
+.test-work/
+*.log
