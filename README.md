@@ -2,25 +2,26 @@
 
 Local attachment preparation for **Vencord desktop** and **BetterDiscord**. ClampDown checks Discord's current upload limit, compresses oversized media, and splits other oversized files into multipart 7z archives before returning everything to the attachment composer for you to review and send.
 
-The clamp-and-folder icon opens independent presets for video, images, and archives. Advanced size/speed controls, dependency setup, progress, cancellation, and recent results are in the same panel.
 
 ## Install on Windows
 
-Use one client modification at a time.
 
 ### BetterDiscord
 
-Copy `dist/ClampDown.plugin.js` into your BetterDiscord plugins folder and enable **ClampDown**. Alternatively, run:
+Copy `dist/ClampDown.plugin.js` into your BetterDiscord plugins folder and enable **ClampDown** (Recommended). Alternatively, run:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\scripts\install-betterdiscord.ps1
 ```
+Disclaimer:
+BetterDiscord provides a limited module interface rather than full Node.js. ClampDown therefore embeds its local helper inside the single plugin file and writes it automatically when started.
+Use **Dependencies & setup → Check Node.js**, or download the pinned official Node.js LTS installer from the adjacent button. Then click **Start local helper**. After setup, compression restarts the helper as needed; disabling ClampDown stops it, and it exits after ten idle minutes.
 
-BetterDiscord provides a limited module interface rather than full Node.js. ClampDown therefore embeds its local helper inside the single plugin file and writes it automatically when started; `ClampDown-helper.cjs` does not need to be copied. Use **Dependencies & setup → Check Node.js**, or download the pinned official Node.js LTS installer from the adjacent button. Then click **Start local helper**. After setup, compression restarts the helper as needed; disabling ClampDown stops it, and it exits after ten idle minutes.
+The helper listens only on `127.0.0.1`, uses a random per-run authentication token, and rejects requests with an Origin header. 
+Requests use BetterDiscord's native networking API.
+If Windows Script Host is disabled, the panel gives a command to start the helper manually.
 
-The helper listens only on `127.0.0.1`, uses a random per-run authentication token, and rejects requests with an Origin header. Requests use BetterDiscord's native networking API. This is a separate ordinary Node process, not an injection into Discord or a change to BetterDiscord's sandbox. If Windows Script Host is disabled, the panel gives a command to start the helper manually.
-
-### Vencord
+### Vencord (Not properly tested as i do not use Vencord that much)
 
 Run this from an extracted ClampDown project/release:
 
